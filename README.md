@@ -2,6 +2,8 @@
 
 A modern single-repo SPA web application powered by Cloudflare Workers. This project provides a complete development and deployment solution with zero DevOps overhead.
 
+🌐 **Demo:** https://cf-web-monorepo.monster25rus.workers.dev/
+
 ## Features
 
 - 🚀 One-click deployment with CI/CD pipeline
