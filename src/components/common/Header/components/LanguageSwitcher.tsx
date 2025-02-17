@@ -1,9 +1,9 @@
-import { IconButton, Menu, MenuItem } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { useNavigate, useLocation } from 'react-router-dom';
-import LanguageIcon from '@mui/icons-material/Language';
-import React from 'react';
-import { SUPPORTED_LANGUAGES } from '@/i18n/i18n';
+import { IconButton, Menu, MenuItem } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
+import LanguageIcon from "@mui/icons-material/Language";
+import React from "react";
+import { SupportedLanguages } from "@/i18n/i18n";
 
 export const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
@@ -31,9 +31,9 @@ export const LanguageSwitcher = () => {
       <IconButton
         onClick={handleClick}
         size="small"
-        aria-controls={open ? 'language-menu' : undefined}
+        aria-controls={open ? "language-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
       >
         <LanguageIcon color="primary" />
       </IconButton>
@@ -43,11 +43,15 @@ export const LanguageSwitcher = () => {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'language-button',
+          "aria-labelledby": "language-button",
         }}
       >
-        {SUPPORTED_LANGUAGES.map((code) => (
-          <MenuItem key={code} onClick={() => changeLanguage(code)} selected={i18n.language === code}>
+        {Object.values(SupportedLanguages).map((code) => (
+          <MenuItem
+            key={code}
+            onClick={() => changeLanguage(code)}
+            selected={i18n.language === code}
+          >
             {t(`languages.${code}`)}
           </MenuItem>
         ))}

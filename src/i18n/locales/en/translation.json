@@ -1,5 +1,6 @@
 {
   "welcome": {
-    "title": "It works!"
+    "title": "It works!",
+    "getPosts": "Get Posts"
   }
 }

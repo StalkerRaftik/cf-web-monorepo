@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json - schema of the config file",
+  "name": "cf-web-monorepo - name of the project",
+  "main": "backendSrc/index.ts - path to the main file relative to the root of the project",
+  "compatibility_date": "2024-12-30 - date of node.js compatibility",
+  "compatibility_flags": [
+    "nodejs_compat - compatibility with nodejs. Not all features are supported."
+  ],
+  "minify": "true - minify the code, false - do not minify the code",
+  "assets": {
+    "directory": "Static files folder relative to the root of the project",
+    "binding": "The name of the variable in the code that will be used to access the static files",
+    "not_found_handling": "single-page-application - redirect to index.html if the path is not found"
+  },
+  "observability": {
+    "enabled": "true - enable logging, false - disable logging. WARNING: cloudflare has billing for this"
+  },
+  "placement": {
+    "mode": "where to deploy the worker. smart - deploy to the nearest location, manual - deploy to the specified location"
+  },
+  "d1_databases": [
+    {
+      "binding": "The name of the variable in the code that will be used to access the database",
+      "database_name": "The name of the database (from cloudflare dashboard)",
+      "database_id": "The id of the database (from cloudflare dashboard)",
+      "migrations_dir": "The path to the migrations directory relative to the root of the project"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "The name of the variable in the code that will be used to access the bucket",
+      "bucket_name": "The name of the bucket (from cloudflare dashboard)"
+    }
+  ],
+  "vars": {
+    "SOME_BACKEND_VARIABLE": "You can set public variables here"
+  },
+  "env": {
+    "dev": {
+      "_hint": "You can create multiple environments for different purposes. For example, dev, test, prod. Each environment can have different variables and different workers."
+    },
+    "test": {
+      "_hint": "You can set environment via --env flag. For example: wrangler dev --env test or wrangler deploy --env test"
+    }
+  }
+}

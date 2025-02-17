@@ -1,3 +1,4 @@
+// Frontend-only type
 export interface Location {
   city: string;
   cityNames?: {

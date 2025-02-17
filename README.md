@@ -1,5 +1,7 @@
 # CF Web Monorepo
 
+[🇷🇺 Русская версия](README.ru.md)
+
 A modern single-repo SPA web application powered by Cloudflare Workers. This project provides a complete development and deployment solution with zero DevOps overhead.
 
 🌐 **Demo:** https://cf-web-monorepo.whiletruedoend.workers.dev/
@@ -13,6 +15,31 @@ A modern single-repo SPA web application powered by Cloudflare Workers. This pro
 - 🗄️ Seamless connection to storage buckets and databases
 - 🛠️ Development and testing environments
 - 📚 Auto-generated API documentation
+
+## Prerequisites Setup
+
+1. **Configure wrangler.json:**
+   - Modify `wrangler.json` according to your needs
+   - Detailed documentation can be found in [Cloudflare Workers docs](https://developers.cloudflare.com/workers/)
+   - Reference `wrangler.docs.json` for a quick overview of each configuration option
+   - After modifying Wrangler resources (D1, KV, etc.), run:
+     ```bash
+     npm run cf-typegen
+     ```
+     This generates TypeScript types for your Worker bindings
+
+2. **Prepare dist folder:**
+   - Backend requires the `dist` folder to be present before starting (it loads assets from there)
+   - Either create an empty `dist` folder
+   - Or build the frontend using `npm run build`
+
+3. **Drizzle Migrations Setup:**
+   - Create `.env` file from `.env.example`
+   - Set the required environment variables in `.env`
+
+4. **D1 Database Setup:**
+   - Create a D1 database in your Cloudflare dashboard
+   - Update the D1 configuration in `wrangler.json` with your database details
 
 ## Quick Start
 
@@ -63,29 +90,45 @@ Auto-generated API documentation is available at:
 
 ## Database Migrations
 
-While Cloudflare Workers currently don't support ORM migrations, you can manage your database schema using SQL files.
-
-To apply migrations to your D1 database:
+To manage your database schema:
 
 ```bash
-npx wrangler d1 execute YOUR_DB_LABEL --remote --file=./src/migrations/001_create_users_table.sql
-```
+# Generate new migration
+npm run makemigrations
 
-For local development:
-```bash
-npx wrangler d1 execute YOUR_DB_LABEL --local --file=./src/migrations/001_create_users_table.sql
+# Apply migrations
+npm run migrate
 ```
 
 ## Project Structure
 
 ```
 .
-├── src/                  # Frontend source code
-├── backendSrc/          # Backend source code
-├── public/              # Static assets
-├── dist/               # Build output
-└── wrangler.toml       # Cloudflare Workers configuration
+├── src/                    # Frontend source code
+├── backendSrc/            # Backend source code
+│   ├── migrations/        # Database migrations
+│   └── types/            # Backend type definitions
+├── shared/                # Shared types and utilities
+├── worker-configuration.d.ts  # Worker environment variables interface
+├── public/               # Static assets
+├── dist/                 # Build output
+├── drizzle.config.ts    # Drizzle ORM configuration
+├── wrangler.toml        # Cloudflare Workers configuration
+├── .dev.vars            # Local development environment variables
+├── .env                 # Environment variables
+└── tsconfig.json        # TypeScript configuration
 ```
+
+Each directory serves a specific purpose:
+- `src/`: Contains all frontend React components, styles, and assets
+- `backendSrc/`: Houses the backend Worker logic, API routes, and services
+- `shared/`: Contains types and utilities shared between frontend and backend
+- `worker-configuration.d.ts`: TypeScript interface definitions for Worker environment variables
+- `public/`: Static files served directly
+- `dist/`: Compiled and bundled output
+- `drizzle.config.ts`: Database ORM configuration and settings
+- `.dev.vars`: Local environment variables for Wrangler development
+- `.env`: Production environment variables
 
 ## Environment Variables
 

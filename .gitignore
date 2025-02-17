@@ -171,3 +171,7 @@ dist
 .dev.vars
 
 .wrangler
+
+wrangler.ignore.json
+
+.vscode

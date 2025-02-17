@@ -1,0 +1,5 @@
+# This file is used to set environment variables for the development environment.
+# You can set test/prod variables in cloudflare dashboard.
+# This is useful for private variables that you don't want to commit to the repository.
+# Public variables can be set in wrangler.json
+SOME_BACKEND_VARIABLE=some-value

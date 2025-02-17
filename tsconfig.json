@@ -2,18 +2,25 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["/*"],
+      "@/src/*": ["src/*"],
+      "@/backendSrc/*": ["backendSrc/*"],
       "@/assets/*": ["src/assets/*"],
-      "@/components/*": ["src/components/*"]
+      "@/components/*": ["src/components/*"],
+      "@worker-config": ["worker-configuration.d.ts"],
+      "@/shared/*": ["shared/*"],
+      "@/types/*": ["shared/types/*"],
+      "@/providers/*": ["src/providers/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/themes/*": ["src/themes/*"],
+      "@/i18n/*": ["src/i18n/*"]
     },
     "target": "es2021",
     "lib": ["es2021", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "types": [
-      "@cloudflare/workers-types/2023-07-01"
-    ],
+    "types": ["@cloudflare/workers-types/2023-07-01", "./worker-configuration"],
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
@@ -33,8 +40,10 @@
     "src/**/*",
     "worker-configuration.d.ts",
     "vite.config.mts",
-    "vitest.config.mts"
+    "vitest.config.mts",
+    "backendSrc/**/*",
+    "shared/**/*",
+    "vite-env.d.ts"
   ],
   "exclude": ["test"]
 }
-

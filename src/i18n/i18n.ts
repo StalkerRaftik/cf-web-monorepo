@@ -4,14 +4,17 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enTranslation from './locales/en/translation.json';
 import ruTranslation from './locales/ru/translation.json';
 
-export const SUPPORTED_LANGUAGES = ['en', 'ru'];
-export const DEFAULT_LANGUAGE = 'en';
+export enum SupportedLanguages {
+  EN = "en",
+  RU = "ru",
+}
+export const DEFAULT_LANGUAGE = SupportedLanguages.EN;
 
 const resources = {
-  en: {
+  [SupportedLanguages.EN]: {
     translation: enTranslation
   },
-  ru: {
+  [SupportedLanguages.RU]: {
     translation: ruTranslation
   }
 };
@@ -21,7 +24,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: DEFAULT_LANGUAGE,
     interpolation: {
       escapeValue: false
     },
