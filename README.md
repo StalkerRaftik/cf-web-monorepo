@@ -95,8 +95,12 @@ To manage the database schema:
 # Create a new migration
 npm run makemigrations
 
-# Apply migrations
-npm run migrate
+# Apply migrations locally
+npm run migrate --db=DATABASE_NAME_FROM_WRANGLER_JSON
+# Apply migrations remotely for dev/test/production databases
+npm run migrate:dev --db=DATABASE_NAME_FROM_WRANGLER_JSON
+npm run migrate:test --db=DATABASE_NAME_FROM_WRANGLER_JSON
+npm run migrate:prod --db=DATABASE_NAME_FROM_WRANGLER_JSON
 ```
 
 ## Project Structure

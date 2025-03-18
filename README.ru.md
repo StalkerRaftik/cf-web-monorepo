@@ -95,8 +95,12 @@ npm run deploy
 # Создать новую миграцию
 npm run makemigrations
 
-# Применить миграции
-npm run migrate
+# Применить миграции локально
+npm run migrate --db=DATABASE_NAME_FROM_WRANGLER_JSON
+# Применить миграции удаленно для dev/test/prod баз данных
+npm run migrate:dev --db=DATABASE_NAME_FROM_WRANGLER_JSON
+npm run migrate:test --db=DATABASE_NAME_FROM_WRANGLER_JSON
+npm run migrate:prod --db=DATABASE_NAME_FROM_WRANGLER_JSON
 ```
 
 ## Структура проекта
