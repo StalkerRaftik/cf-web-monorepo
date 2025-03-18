@@ -31,7 +31,10 @@
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "makemigrations": "drizzle-kit generate",
-    "migrate": "drizzle-kit migrate",
+    "migrate": "wrangler d1 migrations apply %npm_config_db% --local",
+    "migrate:dev": "wrangler d1 migrations apply %npm_config_db% --env dev --remote",
+    "migrate:test": "wrangler d1 migrations apply %npm_config_db% --env test --remote",
+    "migrate:prod": "wrangler d1 migrations apply %npm_config_db% --env prod --remote",
     "cf-typegen": "wrangler types",
     "fdev": "vite --open",
     "fstart": "vite --open",
@@ -67,7 +70,6 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250109.0",
     "@eslint/js": "^9.18.0",
     "@types/node": "20.8.3",
     "@types/react": "^18.3.11",
