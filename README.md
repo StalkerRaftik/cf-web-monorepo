@@ -24,12 +24,6 @@ Modern single-page web application based on Cloudflare Workers with a monorepo s
 - npm
 - Cloudflare account
 
-### Installation
-
-```bash
-npm install
-```
-
 ### Initial Setup
 
 1. **Configure wrangler.json:**
