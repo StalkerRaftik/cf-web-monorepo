@@ -45,11 +45,7 @@ npm install
    - Either create an empty `dist` folder
    - Or build the frontend with `npm run build`
 
-3. **Configure Drizzle migrations:**
-   - Create `.env` file based on `.env.example`
-   - Set required environment variables in `.env` [Where can I get variables?](https://orm.drizzle.team/docs/guides/d1-http-with-drizzle-kit)
-
-4. **Set up D1 database:**
+3. **Set up D1 database:**
    - Create a D1 database via Cloudflare dashboard
    - Update D1 configuration in `wrangler.json` with your database details
 
