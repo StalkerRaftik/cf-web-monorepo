@@ -34,7 +34,7 @@
     "migrate": "wrangler d1 migrations apply %npm_config_db% --local",
     "migrate:dev": "wrangler d1 migrations apply %npm_config_db% --env dev --remote",
     "migrate:test": "wrangler d1 migrations apply %npm_config_db% --env test --remote",
-    "migrate:prod": "wrangler d1 migrations apply %npm_config_db% --env prod --remote",
+    "migrate:prod": "wrangler d1 migrations apply %npm_config_db% --remote",
     "cf-typegen": "wrangler types",
     "fdev": "vite --open",
     "fstart": "vite --open",
