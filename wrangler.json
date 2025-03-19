@@ -38,7 +38,8 @@
         {
           "binding": "DB",
           "database_name": "some-database-name",
-          "database_id": "some-database-id"
+          "database_id": "some-database-id",
+          "migrations_dir": "backendSrc/migrations"
         }
       ],
       "r2_buckets": [
@@ -53,7 +54,8 @@
         {
           "binding": "DB",
           "database_name": "some-database-name",
-          "database_id": "some-database-id"
+          "database_id": "some-database-id",
+          "migrations_dir": "backendSrc/migrations"
         }
       ],
       "r2_buckets": [
